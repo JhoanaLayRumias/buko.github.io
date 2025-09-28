@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TO BUKO 🥥</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #000000;
+      background-image: url("IMG_0058.jpg");
+      background-size: contain;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200vh;
+      margin: 0;
+      color: #000000;
+    }
+
+    .container {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 300px;
+}
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 15px;
+      color: #000000;
+      text-align: center;
+    }
+
+    input[type="text"] {
+  display: block;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+    button {
+  display: block;
+  margin: 0 auto;
+  width: 85%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+    button:hover {
+      background-color: #12A645;
+      color: #000000;
+    }
+
+    .alert {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Please Enter Your Name</h1>
+    <input type="text" id="username" placeholder="Your Name Here">
+    <button onclick="greetUser()">Submit</button>
+    <div id="greetingMessage" class="alert"></div>
+  </div>
+
+  <script>
+  function typeWriter(element, text, speed, callback) {
+    let i = 0;
+    element.innerHTML = "";
+    function type() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
+  }
+
+  function greetUser() {
+    let userName = document.getElementById("username").value;
+    let greetingMessage = document.getElementById("greetingMessage");
+
+    let additionalText = `To my love, to someone who makes me feel so special, to someone I want to spend the rest of my life:
+
+To the smiles, laughs, tears and days without being together, and hours of being on the phone until we were reunited.
+
+I said, "yes" before you even asked if I wanted to spend my life with you, and I will say "yes" every day, for the rest of our lives.
+
+I wanted to express my gratitude for your kindness and patience as we got to know one another. I'm happy to say “I am prepared to move forward with you."
+
+Being with me is not easy I know that. I overthink, get moody, and sometimes I need reassurance even when I don't say it out loud. But if you choose to stay, if you choose to love me despite my flaws, I promise to love you with everything I have. I'll be there for you on your best days and your worst, cheering you on, and making sure you never feel alone. Loving me may not always be simple, but I'll make sure it's always worth it.
+
+Hangga't nandito ako, may babaeng mag titiwalang kaya mo, babaeng proud na proud sayo, kakampi mo sa lahat, handang makinig at samahan ka sa lahat ng pagsubok, hindi mag dadalawang isip na mahalin ka araw-araw, palaging ipaparamdam sayo na ikaw lang palagi, handang samahan ka sa hirap man o ginhawa, makakaasa kang hindi ka mag iisa, nandito lang ako palagi sa tabi mo.
+
+Pero ayaw na ayaw ko na ginagawa mo akong first priority mo, I shouldn't be. I want your priority first to be you, your ambitions, your life and your future. Focus ka lang dun. I want the best for you. Ayoko ng nakaka distract, just let me be your motivation.
+
+“May the Lord keep watch between you and me, when we are away from each other.”
+Genesis 31:49
+
+I'm saying YES ❤️
+I LOVE YOU BUKO!!! You’re my always in all ways!! 🫶🏻
+September 28, 2025
+
+Sincerely,
+The girl who can’t wait to say
+"I do."`;
+
+    if (userName.trim() !== "") {
+      greetingMessage.style.display = "block";
+      typeWriter(greetingMessage, `Hello, ${userName}!`, 100, function () {
+        setTimeout(function () {
+          typeWriter(greetingMessage, additionalText, 50);
+        }, 1500);
+      });
+    } else {
+      greetingMessage.textContent = "Please enter your name.";
+      greetingMessage.style.display = "block";
+    }
+  }
+</script>
+</body>
+</html>
